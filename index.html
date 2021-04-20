@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Insurance Risk Calculator</title>
+</head>
+
+<body></body>
+    <h1>Health Insurance Risk Calculator</h1>
+    <p>Instructions: Provide information about you and your body demographics.</p>
+
+    <label>Provide information on the age you categorize in.</label><br />
+    <select name="age" id="age">
+        <option value="under_30">Under 30</option>
+        <option Value="30_to_45">30 to 45</option>
+        <option value="45_to_60">45 to 60</option>
+        <option value="60_and_over">60 and over</option>       
+    </select>
+    <br /><br />
+
+    Enter your height in feet and inches: <input id="height_feet" type="number" placeholder="0"></html>input feet 
+        <input id="height_inches" type="number" placeholder="0"></input> inches
+    </select>
+    <br /><br />
+
+    <label>Provide information on your Body Mass Index(BMI).</label><br />
+    <select name="BMI" id="BMI">
+        <option value="18.5_to_24.9">18.5 to 24.9</option>
+        <option Value="25.0_to_29.9">25.0 to 29.9</option>
+        <option value="30.0_to_34.9">30.0 to 34.9</option>      
+    </select>
+    <br /><br />
+
+    <label>Provide information on the category your systolic and diastolic reading's for blood pressure.</label><br />
+    <select name="systolic_diastolic" id="systolic_diastolic">
+        <option value="120_and_less_for_systolic_less_than_90-for_diastolic">120 and less for systolic, less than 90 for diastolic</option>
+        <option Value="120_to_129_for_systolic_less_than_80_for diastolic">120 to 129 for systolic, less than 80 for diastolic</option>
+        <option value="130_to_139_for_systolic_80_to_89_for_diastolic">130 to 139 for systolic, 80 to 89 for diastolic</option>
+        <option value="140_to_179_for_systolic_90_or_higher_for_diastolic">140 to 179 for systolic, 90 or higher for diastolic</option>
+        <option value="180_and_over_for_systolic_higher_than_120_for_diastolic">180 and over for systolic, higher than 120 for diastolic</option>
+
+    </select>
+    <br /><br />
+
+    <label>Provide information on whether your family has had these selected diseases.</label><br />
+    <select name="family_diseases" id="family_diseases">
+        <option value="diabetes">diabetes</option>
+        <option Value="cancer">cancer</option>
+        <option value="alzheimers">alzheimers</option>
+        
+    </select>
+    <br /><br />
+
+    <br /><br /><br />
+    <button onclick="calculateRisk()">Calculate Risk</button>
+    <p id="Risk"></p>
+
+  <script>
+  console.log("Starting calculation on risk....");
+
+  function calculateRisk() {
+    console.log("calculateRisk()");
+
+    const HEALTH_RESPONSE = [
+        0-30,
+        0-75,
+        0-100,
+        0-10,
+    ]
+
+    const MAX_SCORE = 215;
+
+    let question1Response = document.getElementById('age').selectOptions[0].value;
+    let question2Response = document.getElementById('BMI').selectOptions[0].value;
+    let question3Response = document.getElementById('systolic_diastolic').selectOptions[0].value;
+    let question4Response = document.getElementById('family_diseases').selectOptions[0].value;
+
+    console.log("Question 1 Answers:");
+    console.log(document.getElementById("age").selectOptions[0].text);
+    console.log(document.getElementById("age").selectOptions[0].value);
+    console.log(question1Response);
+  
+    console.log("Question 2 Answers:");
+    console.log(document.getElementById("BMI").selectOptions[0].text);
+    console.log(document.getElementById("q2").selectOptions[0].value);
+    console.log(question1Response);
+
+    console.log("Question 3 Answers:");
+    console.log(document.getElementById("systolic_diastolic").selectOptions[0].text);
+    console.log(document.getElementById("systolic_diastolic").selectOptions[0].value);
+    console.log(question1Response);
+
+    console.log("Question 4 Answers:");
+    console.log(document.getElementById("family_diseases").selectOptions[0].text);
+    console.log(document.getElementById("family_diseases").selectOptions[0].value);
+    console.log(question1Response);
+
+  
+    let question1Risk = 30 - Math.abs(question1Response - HEALTH_RESPONSE[0-30])
+    let question2Risk = 75 - Math.abs(question2Response - HEALTH_RESPONSE[0-75])
+    let question3Risk = 100 - Math.abs(question3Response - HEALTH_RESPONSE[0-100])
+    let question4Risk = 10 - Math.abs(question4Response - HEALTH_RESPONSE[0-10])
+
+    console.log(question1Risk);
+    console.log(question2Risk);
+    console.log(question3Risk);
+    console.log(question4Risk);
+
+    let totalRisk = question1Risk + question2Risk + question3Risk+ question4Risk + question5Risk;
+
+    totalRisk *= 215 / MAX_SCORE;
+    totalRisk= Math.round(totalRisk);
+    console.log("totalRisk="+ totalRisk);
+
+
+    document.getElementById("risk").innerHTML = "Your risk is....";
+  }
+
+  </script>
+  </body>
+  </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<h1>To give you more clarification.</h1>
+<p>"A more in-depth look on blood pressure."</p>
+<p>Based on the question:</p>
+<p>     First option = normal</p>
+<p>     Second option = elevated</p>
+<p>     Third option = stage 1 hypertension</p>
+<p>     Fourth option = stage 2 hypertension</p>
+<p>     Fifth option = hypertensive crisis</p>
+
+<p>"A more in-depth look on BMI."</p>
+<p>Based on the question:</p>
+<p>     First option = normal</p>
+<p>     Second option = overweight</p>
+<p>     Third option = obesity</p>
+
+</body>
+</html>
+
+ 
+
+
